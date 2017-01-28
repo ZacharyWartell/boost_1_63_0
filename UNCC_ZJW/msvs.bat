@@ -1,11 +1,9 @@
 echo off
 REM \author Zachary Wartell <zwartell@uncc.edu>
 REM 
-REM \brief
-REM 
 REM
 REM This script is an attempt to automate the instructions in 
-
+REM 
 REM    http://www.boost.org/doc/libs/1_63_0/more/getting_started/windows.html
 REM       
 REM The compiler settings and directory paths are based my needs and conventions for compiling the suite
@@ -128,7 +126,8 @@ if DEFINED DEBUG_EXIT2 (
 ) else (
 	.\b2 --layout=versioned --prefix=%INSTALL_DIR% --libdir=%INSTALL_LIB_DIR% toolset=%TOOLSET% runtime-debugging=on runtime-link=shared link=shared threading=multi address-model=%ADDRESS_MODEL% --with-system --with-filesystem install 
 )
-echo off
+REM echo off
+
 :exit_popd
 
 popd
