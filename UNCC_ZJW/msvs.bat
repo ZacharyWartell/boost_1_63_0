@@ -64,6 +64,7 @@ if "%MSVS_BITS%"=="64" (
 )
 
 set INSTALL_LIB_DIR=%INSTALL_DIR%lib\
+set INSTALL_BIN_DIR=%INSTALL_DIR%bin\
 
 REM set INSTALL_BASE_DIR=%TPL_DIR%\install
 REM set INSTALL_BIN_DIR=%INSTALL_DIR%bin
@@ -125,6 +126,7 @@ if DEFINED DEBUG_EXIT2 (
 	echo .\b2 --layout=versioned --prefix=%INSTALL_DIR% --libdir=%INSTALL_LIB_DIR% toolset=%TOOLSET% runtime-debugging=on runtime-link=shared link=shared threading=multi address-model=%ADDRESS_MODEL% --with-system --with-filesystem install 
 ) else (
 	.\b2 --layout=versioned --prefix=%INSTALL_DIR% --libdir=%INSTALL_LIB_DIR% toolset=%TOOLSET% runtime-debugging=on runtime-link=shared link=shared threading=multi address-model=%ADDRESS_MODEL% --with-system --with-filesystem install 
+       xcopy /D /Y "%INSTALL_LIB_DIR%boost*.dll" "%INSTALL_BIN_DIR%"
 )
 REM echo off
 
